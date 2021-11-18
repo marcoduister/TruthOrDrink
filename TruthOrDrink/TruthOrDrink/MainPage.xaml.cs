@@ -14,5 +14,15 @@ namespace TruthOrDrink
         {
             InitializeComponent();
         }
+
+        private void RegisterRedirectButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistrationPage());
+        }
+
+        private void LoginRedirectButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
     }
 }
