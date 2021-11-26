@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.Game.GameCreatePage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Create Game" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddPlayerButton"   Priority="0" Order="Primary" Clicked="AddPlayerButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20">
+        <StackLayout Padding="0,0,0,20">
+            <Label FontSize="20" TextColor="White" Text="Category" />
+            <Picker Title="Pick a category" TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" x:Name="picker">
+                <Picker.Items>
+                    <x:String>udnie</x:String>
+                    <x:String>wave</x:String>
+                    <x:String>la_muse</x:String>
+                    <x:String>rain_princess</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button x:Name="CategoryRedirectButton" Margin="0,30,0,0" Text="Play" TextColor="White" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#FDAF01" />
+        </StackLayout>
+        <StackLayout>
+            <Label FontSize="28" TextColor="White" Text="Player List" />
+            <ListView x:Name="PlayerList" HasUnevenRows="True" RowHeight="60" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame CornerRadius="7" Padding="5" Margin="8" BackgroundColor="#FDAF01"  HasShadow="True" IsClippedToBounds="True" >
+                                <AbsoluteLayout HeightRequest="60" >
+                                    <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                    <ImageButton x:Name="PlayerDeleteButton" BackgroundColor="Transparent"  Source="trashicon.png"  HorizontalOptions="End" 
+                                         Clicked="PlayerDeleteButton_Clicked" AbsoluteLayout.LayoutBounds="0.98,0.5,25,100" 
+                                         AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

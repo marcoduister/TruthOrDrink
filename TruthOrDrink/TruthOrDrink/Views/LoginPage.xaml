@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TruthOrDrink.LoginPage">
+             x:Class="TruthOrDrink.LoginPage" >
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+        <Frame BackgroundColor="#00FBC1BC" Padding="24" CornerRadius="0">
             <Label Text="Truth or Drink" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
             
             <StackLayout Orientation="Vertical" Spacing="10">
-                <Entry x:Name="EmailEntry" Text="{Binding EmailEntry}" Placeholder="Email"/>
-                <Entry x:Name="PasswordEntry" Text="{Binding PasswordEntry}" Placeholder="Password"   
+                <Entry x:Name="EmailEntry"    PlaceholderColor="White" TextColor="White" Text="{Binding EmailEntry}" Placeholder="Email"/>
+                <Entry x:Name="PasswordEntry" PlaceholderColor="White" TextColor="White" Text="{Binding PasswordEntry}" Placeholder="Password"   
                         IsPassword="True"/>
             </StackLayout>
 
-            <Button x:Name="LoginButton" Text="Login" TextColor="Black" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#42C2F0"  Clicked="LoginButton_Clicked" />
+            <Button x:Name="LoginButton" Text="Login" TextColor="White" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#FDAF01"  Clicked="LoginButton_Clicked" />
             
         </StackLayout>
 

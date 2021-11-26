@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.Category.CategoryAddPage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Create Category" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+        <Entry x:Name="CategoryNameEntry"    PlaceholderColor="White" TextColor="White" Text="{Binding CategoryNameEntry}"    Placeholder="Category Name"/>
+        <Entry x:Name="DescriptionEntry" PlaceholderColor="White" TextColor="White" Text="{Binding DescriptionEntry}" Placeholder="Description" />
+        
+        <StackLayout x:Name="Container">
+            <Label Text="Aantal Vragen" FontSize="Medium" TextColor="white" />
+            <Label x:Name="StepperNumber" BindingContext="{x:Reference stepper}" FontSize="Medium" TextColor="white" Text="{Binding Value}" />
+            <Stepper Minimum="0" Maximum="100" x:Name="stepper" Increment="1" />
+        </StackLayout>
+
+        <Button x:Name="CreateCategoryButton" Text="Create" TextColor="white" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#FDAF01" Clicked="CreateCategoryButton_Clicked"/>
+
+    </StackLayout>
+
+</ContentPage>

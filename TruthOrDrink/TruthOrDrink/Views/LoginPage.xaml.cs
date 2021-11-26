@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TruthOrDrink.Views;
 
 namespace TruthOrDrink
 {
@@ -23,11 +23,11 @@ namespace TruthOrDrink
             var Password = PasswordEntry.Text;
             if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(Password))
             {
-                Navigation.PushAsync(new MasterPage());
+                Navigation.PushAsync(new HomePage());
             }
             else
             {
-                string haha = "";
+                
             }
         }
     }

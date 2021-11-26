@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.RegistrationPage">
+    <StackLayout>
+        <Frame BackgroundColor="#00FBC1BC" Padding="24" CornerRadius="0">
+            <Label Text="Truth or Drink" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+            <Entry x:Name="EmailEntry"    PlaceholderColor="White" TextColor="White" Text="{Binding EmailEntry}"    Placeholder="Email"/>
+            <Entry x:Name="NickNameEntry" PlaceholderColor="White" TextColor="White" Text="{Binding NickNameEntry}" Placeholder="NickName" />
+            <Entry x:Name="PasswordEntry" PlaceholderColor="White" TextColor="White" Text="{Binding PasswordEntry}" Placeholder="Password" IsPassword="True"/>
+            
+
+            <Button x:Name="RegisterButton" Text="Register" TextColor="white" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#FDAF01" Clicked="RegisterButton_Clicked"/>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.Question.QuestionAddPage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Create Question" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+        <Entry x:Name="QuestionEntry" PlaceholderColor="White" TextColor="White" Text="{Binding QuestionEntry}"    Placeholder="Question"/>
+
+        <Button x:Name="CreateQuestionButton" Text="Create" TextColor="white" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#FDAF01" Clicked="CreateQuestionButton_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

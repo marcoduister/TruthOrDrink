@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.Question.QuestionPage">
+    
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Questions" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddQuestionButton"   Priority="0" Order="Primary" Clicked="AddQuestionButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="QuestionList" HasUnevenRows="True" RowHeight="60" >
+        <ListView.ItemTemplate>
+            <DataTemplate >
+                <ViewCell>
+                    <Frame CornerRadius="7" Padding="5" Margin="8" BackgroundColor="#FDAF01"  HasShadow="True" IsClippedToBounds="True" >
+                        <AbsoluteLayout HeightRequest="60" >
+                            <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                            <ImageButton x:Name="QuestionDeleteButton" BackgroundColor="Transparent"  Source="trashicon.png"  HorizontalOptions="End" 
+                                         Clicked="QuestionDeleteButton_Clicked" AbsoluteLayout.LayoutBounds="0.98,0.5,25,100" 
+                                         AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                        </AbsoluteLayout>
+
+                    </Frame>
+
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
