@@ -1,41 +1,19 @@
 ﻿using System;
+using SQLite;
 using System.Collections.Generic;
 using System.Text;
 
 namespace TruthOrDrink.Model
 {
-    class User
+    [Table("User")]
+    public class User
     {
-        public User()
-        {
+        [PrimaryKey, AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string NickName { get; set; }
+        public string Password { get; set; }
 
-        }
-
-        private int id;
-        private string email;
-        private string nickName;
-        private string password;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-        public string NickName
-        {
-            get { return nickName; }
-            set { nickName = value; }
-        }
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
     }
 }

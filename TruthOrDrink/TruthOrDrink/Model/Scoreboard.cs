@@ -1,37 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace TruthOrDrink.Model
 {
-    class Scoreboard
+    [Table("Scoreboard")]
+    public class Scoreboard
     {
-        Scoreboard()
-        {
 
-        }
-
-        private int id;
-        private string nickname;
-        private DateTime date;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string NickName
-        {
-            get { return nickname; }
-            set { nickname = value; }
-        }
-
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
-        }
-
+        [PrimaryKey, AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+        public string PlayerName { get; set; }
+        public DateTime Date { get; set; }
+        [Indexed]
+        [Column("Player_Id")]
+        public int Playerid { get; set; }
+        [Indexed]
+        [Column("Game_id")]
+        public int Gameid { get; set; }
     }
 }

@@ -4,7 +4,7 @@
              x:Class="TruthOrDrink.Views.Game.GameCreatePage">
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Create Game" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+            <Label Text="Create Game" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
@@ -13,18 +13,24 @@
 
     <StackLayout Margin="20">
         <StackLayout Padding="0,0,0,20">
-            <Label FontSize="20" TextColor="White" Text="Category" />
-            <Picker Title="Pick a category" TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" x:Name="picker">
-                <Picker.Items>
-                    <x:String>udnie</x:String>
-                    <x:String>wave</x:String>
-                    <x:String>la_muse</x:String>
-                    <x:String>rain_princess</x:String>
-                </Picker.Items>
-            </Picker>
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label FontSize="20" Text="Category" />
+                <Frame Style="{StaticResource FrameEntryStyle}">
+                    <Picker Title="Pick a category"  TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" x:Name="picker">
+                        <Picker.Items>
+                            <x:String>udnie</x:String>
+                            <x:String>wave</x:String>
+                            <x:String>la_muse</x:String>
+                            <x:String>rain_princess</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Frame>
+            </StackLayout>
 
-            <Button x:Name="CategoryRedirectButton" Margin="0,30,0,0" Text="Play" TextColor="White" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" />
+
+
+
+            <Button x:Name="playButton" Clicked="playButton_Clicked" Text="Play" Margin="0,30,0,0" />
         </StackLayout>
         <StackLayout>
             <Label FontSize="28" TextColor="White" Text="Player List" />
@@ -32,14 +38,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate >
                         <ViewCell>
-                            <Frame CornerRadius="7" Padding="5" Margin="8" BackgroundColor="#FDAF01"  HasShadow="True" IsClippedToBounds="True" >
+                            <Frame Style="{StaticResource Listviewstyle}" >
                                 <AbsoluteLayout HeightRequest="60" >
                                     <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
                                    AbsoluteLayout.LayoutFlags="PositionProportional" />
 
-                                    <ImageButton x:Name="PlayerDeleteButton" BackgroundColor="Transparent"  Source="trashicon.png"  HorizontalOptions="End" 
-                                         Clicked="PlayerDeleteButton_Clicked" AbsoluteLayout.LayoutBounds="0.98,0.5,25,100" 
-                                         AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                    <ImageButton x:Name="PlayerDeleteButton" Source="trashicon.png" Clicked="PlayerDeleteButton_Clicked" />
                                 </AbsoluteLayout>
                             </Frame>
                         </ViewCell>

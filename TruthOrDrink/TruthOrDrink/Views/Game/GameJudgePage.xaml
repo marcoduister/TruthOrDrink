@@ -2,11 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.Game.GameJudgePage">
-    <ContentPage.Content>
+    <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="judge" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
-    </ContentPage.Content>
+    </NavigationPage.TitleView>
+    <StackLayout>
+
+        <StackLayout>
+            <ListView x:Name="PlayerList" HasUnevenRows="True" RowHeight="60" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame Style="{StaticResource Listviewstyle}" >
+                                <AbsoluteLayout HeightRequest="60" >
+                                    <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                </AbsoluteLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+
+
 </ContentPage>

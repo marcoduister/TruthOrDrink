@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TruthOrDrink.Views.Category.CategoryAddPage">
+             x:Class="TruthOrDrink.Views.Category.CategoryEditPage">
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Create Category" Style="{StaticResource TitleViewStyle}" />
+            <Label Text="Edit Category" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     
     <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
-        <StackLayout Orientation="Vertical" Spacing="10">
+        <StackLayout Orientation="Vertical" Spacing="10" >
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="CategoryNameEntry" Text="{Binding CategoryNameEntry}" Placeholder="Category Name"/>
             </Frame>
@@ -19,7 +19,7 @@
 
         </StackLayout>
 
-        <Button x:Name="CreateCategoryButton" Text="Create" Clicked="CreateCategoryButton_ClickedAsync"/>
+        <Button x:Name="EditCategoryButton" Text="Edit" Clicked="EditCategoryButton_ClickedAsync"/>
 
     </StackLayout>
 

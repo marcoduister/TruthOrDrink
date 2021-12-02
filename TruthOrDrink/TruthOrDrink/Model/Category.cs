@@ -1,30 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
+using SQLitePCL;
 
 namespace TruthOrDrink.Model
 {
-    class Category
+    [Table("Category")]
+    public class Category
     {
-        private int id;
-        private string name;
-        private string description;
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        [PrimaryKey, AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+        [Column("Name")]
+        public string Name { get; set; }
+        [Column("Description")]
+        public string Description { get; set; }
+        [Column("Date")]
+        public DateTime Date { get; set; }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
+        [Indexed]
+        [Column("Maker_Id")]
+        public int Userid { get; set; }
 
     }
 }

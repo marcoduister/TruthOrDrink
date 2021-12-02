@@ -5,30 +5,33 @@
 
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Category" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+            <Label Text="Category" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddCategorieButton"   Priority="0" Order="Primary" Clicked="AddCategorieButton_Clicked"/>
+        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddCategorieButton" Priority="0" Order="Primary" Clicked="AddCategorieButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="CategoryList" ItemSelected="CategoryList_ItemSelected" HasUnevenRows="True" RowHeight="60" >
+    <ListView x:Name="CategoryList" IsPullToRefreshEnabled="true" ItemSelected="CategoryList_ItemSelected" HasUnevenRows="True" RowHeight="60" >
         <ListView.ItemTemplate>
             <DataTemplate >
                 <ViewCell>
-                    <Frame CornerRadius="7" Padding="5" Margin="8" BackgroundColor="#FDAF01" HasShadow="True" IsClippedToBounds="True" >
+                    <Frame Style="{StaticResource Listviewstyle}" >
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Fill" HeightRequest="60"  Margin="0,1,0,1" >
 
-                        <AbsoluteLayout HeightRequest="60" >
-                            <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
-                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
+                            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}" Font="Bold,17"
+                                    HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
 
-                            <ImageButton x:Name="CategoryDeleteButton" BackgroundColor="Transparent"  Source="trashicon.png"  HorizontalOptions="End" 
-                                         Clicked="CategoryDeleteButton_Clicked" AbsoluteLayout.LayoutBounds="0.98,0.5,25,100" 
-                                         AbsoluteLayout.LayoutFlags="PositionProportional"/>
-                        </AbsoluteLayout>
+                                <Label Text="{Binding Description}"
+                                   HorizontalOptions="Start" VerticalOptions="Center" />
+                            </StackLayout>
 
+                            <ImageButton Source="SettingIcon.png" Clicked="CategoryEditButton_Clicked" BindingContext="{Binding Id}"/>
+                            <ImageButton Source="trashicon.png" Clicked="CategoryDeleteButton_Clicked" BindingContext="{Binding Id}" />
+
+                        </StackLayout>
                     </Frame>
-
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

@@ -4,15 +4,19 @@
              x:Class="TruthOrDrink.Views.Question.QuestionAddPage">
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Create Question" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+            <Label Text="Create Question" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
 
-        <Entry x:Name="QuestionEntry" PlaceholderColor="White" TextColor="White" Text="{Binding QuestionEntry}"    Placeholder="Question"/>
+        <StackLayout Orientation="Vertical" Spacing="10">
+            <Frame Style="{StaticResource FrameEntryStyle}" >
+                <Entry x:Name="QuestionEntry" Text="{Binding QuestionEntry}" Placeholder="Question"/>
+            </Frame>
+        </StackLayout>
 
-        <Button x:Name="CreateQuestionButton" Text="Create" TextColor="white" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" Clicked="CreateQuestionButton_Clicked"/>
+
+        <Button x:Name="CreateQuestionButton" Text="Create" Clicked="CreateQuestionButton_Clicked"/>
 
     </StackLayout>
 </ContentPage>

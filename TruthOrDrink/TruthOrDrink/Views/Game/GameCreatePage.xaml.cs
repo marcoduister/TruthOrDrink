@@ -43,5 +43,10 @@ namespace TruthOrDrink.Views.Game
                 Debug.WriteLine("Answer: " + answer);
             }
         }
+
+        private void playButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GamePage());
+        }
     }
 }

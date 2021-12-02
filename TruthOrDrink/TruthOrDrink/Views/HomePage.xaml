@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.HomePage"
              NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" x:Name="LogoutButton" Priority="0" Clicked="LogoutButton_Clicked" Order="Default"/>
+    </ContentPage.ToolbarItems>
     <StackLayout>
-        <Frame BackgroundColor="#00FBC1BC" Padding="24" CornerRadius="0">
-            <Label Text="Truth or Drink" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
+        <StackLayout>
+            <Frame Style="{StaticResource LogoFrameStyle}" >
+                <Label Text="Truth or Drink" Style="{StaticResource LogoLabelStyle}"/>
+            </Frame>
+            <Image Source="liqore.png" />
+        </StackLayout>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
-            <Button x:Name="PlayRedirectButton" Text="Play" TextColor="White" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" Clicked="PlayRedirectButton_Clicked" />
-            <Button x:Name="GameRulesRedirectButton" Text="Game Rules" TextColor="White" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01"  Clicked="GameRulesRedirectButton_Clicked" />
-            <Button x:Name="CategoryRedirectButton" Text="Categorys" TextColor="White" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" Clicked="CategoryRedirectButton_Clicked" />
+            <Button x:Name="PlayRedirectButton" Text="Play" Clicked="PlayRedirectButton_Clicked" />
+            <Button x:Name="GameRulesRedirectButton" Text="Game Rules" Clicked="GameRulesRedirectButton_Clicked" />
+            <Button x:Name="CategoryRedirectButton" Text="Categorys" Clicked="CategoryRedirectButton_Clicked" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

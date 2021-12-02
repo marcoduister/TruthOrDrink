@@ -15,6 +15,18 @@ namespace TruthOrDrink.Views.Game
         public GameJudgePage()
         {
             InitializeComponent();
+            FillList();
+        }
+        private void FillList()
+        {
+            var items = new List<string>();
+            for (int i = 0; i < 3; i++)
+            {
+                items.Add(string.Format("Category {0}", i));
+            }
+
+            PlayerList.ItemsSource = items;
+
         }
     }
 }

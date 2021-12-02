@@ -16,6 +16,11 @@ namespace TruthOrDrink.Views
         {
             InitializeComponent();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
 
         private void PlayRedirectButton_Clicked(object sender, EventArgs e)
         {
@@ -30,6 +35,12 @@ namespace TruthOrDrink.Views
         private void CategoryRedirectButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CategoryPage());
+        }
+
+        private void LogoutButton_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.Properties.Clear();
+            Navigation.PushAsync(new MainPage());
         }
     }
 }

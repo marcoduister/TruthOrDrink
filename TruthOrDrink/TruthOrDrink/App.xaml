@@ -1,16 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TruthOrDrink.App">
+             x:Class="TruthOrDrink.App" >
 
     <Application.Resources>
         <ResourceDictionary>
             <!-- Styles -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="#FDAF01" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="White"></Setter>
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="Source" Value="trashicon.png"></Setter>
+                <Setter Property="WidthRequest" Value="44"></Setter>
+            </Style>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#4F4545"/>
                 <Setter Property="BarTextColor" Value="White"/>
                 <Setter Property="BackgroundColor"  Value="#101010"/>
             </Style>
+
+
+
+            <Style x:Key="TitleViewStyle" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="Margin" Value="0, 0, 75, 0"></Setter>
+            </Style>
+
+
+            <Style x:Key="LogoLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="36"></Setter>
+            </Style>
+
+
+            <Style x:Key="GamePlayerNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.09,0.4,110,25"></Setter>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"></Setter>
+            </Style>
+
+            <Style x:Key="PlayerScorestyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.93,-0.4,25,100"></Setter>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"></Setter>
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+            </Style>
+            <Style x:Key="TypeQuestionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"></Setter>
+            </Style>
+            <Style x:Key="QuestionLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontSize" Value="Medium"></Setter>
+            </Style>
+        <!-- Start Frame -->
+            <Style x:Key="Listviewstyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="7"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="Margin" Value="8"></Setter>
+                <Setter Property="BackgroundColor" Value="#FDAF01"></Setter>
+                <Setter Property="HasShadow" Value="True"></Setter>
+                <Setter Property="IsClippedToBounds" Value="True"></Setter>
+            </Style>
+            <Style x:Key="LogoFrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#00FBC1BC"></Setter>
+                <Setter Property="Padding" Value="24"></Setter>
+                <Setter Property="CornerRadius" Value="0"></Setter>
+            </Style>
+            <Style x:Key="FrameEntryStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="#FDAF01" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+            <Style x:Key="RegEntryFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="5"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="BackgroundColor" Value="#FDAF01"></Setter>
+                <Setter Property="HasShadow" Value="True"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="FlexLayout.AlignSelf" Value="Stretch"></Setter>
+            </Style>
+
+            <!-- Eind Frame -->
+
+        <!-- Start Labels -->
+            <Style x:Key="ErrorLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="red"></Setter>
+                <Setter Property="FlexLayout.AlignSelf" Value="Start"></Setter>
+                <Setter Property="IsVisible" Value="false"></Setter>
+            </Style>
+            <!-- Eind Labels -->
+
             <!-- Styles -->
         </ResourceDictionary>
     </Application.Resources>

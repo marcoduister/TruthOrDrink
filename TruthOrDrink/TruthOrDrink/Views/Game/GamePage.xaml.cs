@@ -15,11 +15,18 @@ namespace TruthOrDrink.Views.Game
         public GamePage()
         {
             InitializeComponent();
+            PlayerName.Text = "Evie";
+            PlayerScore.Text = "10";
         }
 
-        private void AddPlayerButton_Clicked(object sender, EventArgs e)
+        private void GameTruthButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GameUserAddPage());
+            Navigation.PushAsync(new GameJudgePage());
+        }
+
+        private void GameDrinkButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GameJudgePage());
         }
     }
 }

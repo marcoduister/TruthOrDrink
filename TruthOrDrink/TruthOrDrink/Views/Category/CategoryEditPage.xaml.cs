@@ -10,19 +10,31 @@ using Xamarin.Forms.Xaml;
 namespace TruthOrDrink.Views.Category
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoryAddPage : ContentPage
+    public partial class CategoryEditPage : ContentPage
     {
-        public CategoryAddPage()
+        private Model.Category _Category;
+        private int _Id;
+        public CategoryEditPage(int Id)
         {
             InitializeComponent();
+            _Id = Id;
         }
 
-         async void CreateCategoryButton_ClickedAsync(object sender, EventArgs e)
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            _Category = await App.Database.GetCategorybyIdAsync(_Id);
+            CategoryNameEntry.Text = _Category.Name;
+            DescriptionEntry.Text = _Category.Description;
+        }
+
+        async void EditCategoryButton_ClickedAsync(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text) && !string.IsNullOrWhiteSpace(DescriptionEntry.Text))
             {
-                await App.Database.InsertCategoryAsync(new Model.Category
+                await App.Database.UpdateCategoryAsync(new Model.Category
                 {
+                    Id = _Id,
                     Name = CategoryNameEntry.Text,
                     Description = DescriptionEntry.Text,
                     Date = DateTime.Now,

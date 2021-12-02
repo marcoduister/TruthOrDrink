@@ -5,26 +5,20 @@ using SQLite;
 
 namespace TruthOrDrink.Model
 {
-    [Table("Player")]
-    public class Question
+    [Table("Game")]
+    public class Game
     {
         [PrimaryKey, AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
-        [Column("price")]
-        public string QuestionItem { get; set; }
-        [Column("price")]
+        [Column("Date")]
         public DateTime Date { get; set; }
-
-        [Indexed]
-        [Column("Category_Id")]
-        public int Categoryid { get; set; }
 
         [Indexed]
         [Column("Maker_id")]
         public int Userid { get; set; }
-
-
-
+        [Indexed]
+        [Column("Category_id")]
+        public int Categoryid { get; set; }
     }
 }

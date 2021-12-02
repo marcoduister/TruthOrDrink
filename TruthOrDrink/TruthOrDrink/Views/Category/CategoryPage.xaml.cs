@@ -17,32 +17,34 @@ namespace TruthOrDrink.Views
         public CategoryPage()
         {
             InitializeComponent();
-            FillList();
         }
-        private void FillList()
+        protected override async void OnAppearing()
         {
-            var items = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                items.Add(string.Format("Category {0}", i));
-            }
-
-            CategoryList.ItemsSource = items;
-
+            base.OnAppearing();
+            CategoryList.ItemsSource = await App.Database.GetCategoryAllAsync();
         }
+
 
 
         private void AddCategorieButton_Clicked(object sender, EventArgs e)
         {
+            
             Navigation.PushAsync(new CategoryAddPage());
         }
 
-        private async void CategoryDeleteButton_Clicked(object sender, EventArgs e)
+        async void CategoryDeleteButton_Clicked(object sender, EventArgs e)
         {
+            string Id = ((ImageButton)sender).BindingContext.ToString();
             bool answer = await DisplayAlert("Deleting a Question?", "are you sure you want to do this", "Yes", "No");
             if (answer)
             {
-                Debug.WriteLine("Answer: " + answer);
+                Model.Category category = await App.Database.GetCategorybyIdAsync(int.Parse(Id));
+                if (category != null)
+                {
+                    await App.Database.DeleteCategoryAsync(category);
+
+                    CategoryList.ItemsSource = await App.Database.GetCategoryAllAsync();
+                }
             }
             
         }
@@ -50,6 +52,12 @@ namespace TruthOrDrink.Views
         private void CategoryList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new QuestionPage());
+        }
+
+        private void CategoryEditButton_Clicked(object sender, EventArgs e)
+        {
+            string Id = ((ImageButton)sender).BindingContext.ToString();
+            Navigation.PushAsync(new CategoryEditPage(int.Parse(Id)));
         }
     }
 }

@@ -4,23 +4,20 @@
              x:Class="TruthOrDrink.Views.Game.GameUserAddPage">
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Create Game" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+            <Label Text="Create Game" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
+    
     <StackLayout Orientation="Vertical" Padding="30" Spacing="25" >
-
-        <Image Source="PlaceholderPlayer.png" />
-        <StackLayout>
-            <Label Text="Player NickName" FontSize="Small" TextColor="white" />
-            <Entry x:Name="PlayerName"  BackgroundColor="#FDAF01"  PlaceholderColor="White" TextColor="White" Text="{Binding CategoryNameEntry}"    Placeholder="NickName"/>
-
+        <StackLayout Orientation="Vertical" Spacing="10">
+            <Image Source="PlaceholderPlayer.png" />
+            <Frame Style="{StaticResource FrameEntryStyle}">
+                <Entry x:Name="PlayerName" Text="{Binding CategoryNameEntry}" Placeholder="NickName"/>
+            </Frame>
         </StackLayout>
 
-
-        <Button x:Name="TakePhotoButton" Text="Take Photo" TextColor="white" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" Clicked="TakePhotoButton_Clicked" />
-        <Button x:Name="AddPlayerButton" Text="Create" TextColor="white" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#FDAF01" Clicked="AddPlayerButton_Clicked" />
+        <Button x:Name="TakePhotoButton" Text="Take Photo" Clicked="TakePhotoButton_Clicked" />
+        <Button x:Name="AddPlayerButton" Text="Create" Clicked="AddPlayerButton_Clicked" />
 
     </StackLayout>
 </ContentPage>

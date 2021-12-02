@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using TruthOrDrink.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,6 +8,20 @@ namespace TruthOrDrink
 {
     public partial class App : Application
     {
+        private static DataBase database;
+        public static DataBase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DataBase(Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "TruthOrDrink.db3"));
+                }
+                return database;
+            }
+        }
+
+
         public App()
         {
             InitializeComponent();
@@ -14,6 +30,7 @@ namespace TruthOrDrink
 
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnSleep()

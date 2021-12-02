@@ -14,6 +14,8 @@ namespace TruthOrDrink.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(79, 69, 69));
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

@@ -1,43 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace TruthOrDrink.Model
 {
-    class Player
+    [Table("Player")]
+    public class Player
     {
-        public Player()
-        {
+        [PrimaryKey, AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+        [Column("Playername")]
+        public string Playername { get; set; }
+        [Column("Score")]
+        public int Score { get; set; }
+        [Column("ProfileImage")]
+        public byte ProfileImage { get; set; }
+        [Indexed]
+        [Column("Category_id")]
+        public int Gameid { get; set; }
 
-        }
+       
 
-        private int id;
-        private string nickName;
-        private int score;
-        private byte profileImage;
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
 
-        public string NickName
-        {
-            get { return nickName; }
-            set { nickName = value; }
-        }
-
-        public int Score
-        {
-            get { return score; }
-            set { score = value; }
-        }
-
-        public byte ProfileImage
-        {
-            get { return profileImage; }
-            set { profileImage = value; }
-        }
     }
 }

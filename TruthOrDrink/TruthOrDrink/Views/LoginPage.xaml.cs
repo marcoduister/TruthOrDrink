@@ -17,17 +17,31 @@ namespace TruthOrDrink
             InitializeComponent();
         }
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+            ValidateLabel.IsVisible = false;
             var email = EmailEntry.Text;
             var Password = PasswordEntry.Text;
             if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(Password))
             {
-                Navigation.PushAsync(new HomePage());
+                var User = await App.Database.GetUserAsync(email, Password);
+                if (User != null)
+                {
+                    Application.Current.Properties.Clear();
+                    Application.Current.Properties["Email"] = email;
+                    Application.Current.Properties["UserId"] = User.Id;
+                    await Navigation.PushAsync(new HomePage());
+                }
+                else
+                {
+                    ValidateLabel.Text = "please check your credentials!";
+                    ValidateLabel.IsVisible = true;
+                }
             }
             else
             {
-                
+                ValidateLabel.Text = "please fill in all Text fields";
+                ValidateLabel.IsVisible = true;
             }
         }
     }

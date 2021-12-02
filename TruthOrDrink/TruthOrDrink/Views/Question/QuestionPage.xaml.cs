@@ -16,32 +16,41 @@ namespace TruthOrDrink.Views.Question
         public QuestionPage()
         {
             InitializeComponent();
-            FillList();
         }
-        private void FillList()
+        protected override async void OnAppearing()
         {
-            var items = new List<string>();
-            for (int i = 0; i < 3; i++)
-            {
-                items.Add(string.Format("Question {0}", i));
-            }
-
-            QuestionList.ItemsSource = items;
-
+            base.OnAppearing();
+            QuestionList.ItemsSource = await App.Database.GetQuestionAllAsync();
         }
+
+
 
         private void AddQuestionButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new QuestionAddPage());
         }
 
-        private async void QuestionDeleteButton_Clicked(object sender, EventArgs e)
+        async void QuestionDeleteButton_Clicked(object sender, EventArgs e)
         {
+            string Id = ((ImageButton)sender).BindingContext.ToString();
             bool answer = await DisplayAlert("Deleting a Question?", "are you sure you want to do this", "Yes", "No");
             if (answer)
             {
-                Debug.WriteLine("Answer: " + answer);
+                Model.Question question = await App.Database.GetQuestionbyIdAsync(int.Parse(Id));
+                if (question != null)
+                {
+                    await App.Database.DeleteQuestionAsync(question);
+
+                    QuestionList.ItemsSource = await App.Database.GetQuestionAllAsync();
+                }
             }
+
+        }
+
+        private void QuestionEditButton_Clicked(object sender, EventArgs e)
+        {
+            string Id = ((ImageButton)sender).BindingContext.ToString();
+            Navigation.PushAsync(new CategoryEditPage(int.Parse(Id)));
         }
     }
 }

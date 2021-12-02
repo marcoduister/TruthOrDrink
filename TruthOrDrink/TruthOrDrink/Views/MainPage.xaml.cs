@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TruthOrDrink.Views;
 using Xamarin.Forms;
 
 namespace TruthOrDrink
@@ -12,7 +13,14 @@ namespace TruthOrDrink
     {
         public MainPage()
         {
-            InitializeComponent();
+
+                InitializeComponent();
+            
+            
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
 
         private void RegisterRedirectButton_Clicked(object sender, EventArgs e)
