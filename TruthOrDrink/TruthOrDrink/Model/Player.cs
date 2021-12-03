@@ -18,7 +18,7 @@ namespace TruthOrDrink.Model
         [Column("ProfileImage")]
         public byte ProfileImage { get; set; }
         [Indexed]
-        [Column("Category_id")]
+        [Column("Game_Id")]
         public int Gameid { get; set; }
 
        

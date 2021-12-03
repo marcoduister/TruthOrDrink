@@ -12,7 +12,9 @@ namespace TruthOrDrink.Model
         [PrimaryKey, AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
+        [Column("PlayerName")]
         public string PlayerName { get; set; }
+        [Column("Date")]
         public DateTime Date { get; set; }
         [Indexed]
         [Column("Player_Id")]

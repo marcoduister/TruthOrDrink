@@ -11,9 +11,9 @@ namespace TruthOrDrink.Model
         [PrimaryKey, AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
-        [Column("price")]
+        [Column("Question")]
         public string QuestionItem { get; set; }
-        [Column("price")]
+        [Column("Date")]
         public DateTime Date { get; set; }
 
         [Indexed]

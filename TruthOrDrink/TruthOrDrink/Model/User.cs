@@ -11,8 +11,11 @@ namespace TruthOrDrink.Model
         [PrimaryKey, AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
+        [Column("Email")]
         public string Email { get; set; }
+        [Column("NickName")]
         public string NickName { get; set; }
+        [Column("Password")]
         public string Password { get; set; }
 
     }
