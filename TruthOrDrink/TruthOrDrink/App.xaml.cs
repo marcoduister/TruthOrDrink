@@ -3,6 +3,7 @@ using System.IO;
 using TruthOrDrink.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TruthOrDrink.Views;
 
 namespace TruthOrDrink
 {

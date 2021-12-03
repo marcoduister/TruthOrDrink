@@ -42,5 +42,15 @@ namespace TruthOrDrink.Views
             Application.Current.Properties.Clear();
             Navigation.PushAsync(new MainPage());
         }
+
+        private void ScoreboardRedirectButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Scoreboard());
+        }
+
+        private void Profilebutton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Profile());
+        }
     }
 }

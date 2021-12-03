@@ -27,9 +27,6 @@
                 </Frame>
             </StackLayout>
 
-
-
-
             <Button x:Name="playButton" Clicked="playButton_Clicked" Text="Play" Margin="0,30,0,0" />
         </StackLayout>
         <StackLayout>

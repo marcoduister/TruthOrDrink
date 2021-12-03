@@ -4,11 +4,10 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TruthOrDrink
+namespace TruthOrDrink.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrationPage : ContentPage

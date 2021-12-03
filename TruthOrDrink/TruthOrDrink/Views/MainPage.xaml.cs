@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TruthOrDrink.Views;
 using Xamarin.Forms;
 
-namespace TruthOrDrink
+namespace TruthOrDrink.Views
 {
     public partial class MainPage : ContentPage
     {
