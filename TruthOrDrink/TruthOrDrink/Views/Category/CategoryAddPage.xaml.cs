@@ -26,7 +26,7 @@ namespace TruthOrDrink.Views.Category
                     Name = CategoryNameEntry.Text,
                     Description = DescriptionEntry.Text,
                     Date = DateTime.Now,
-                    Userid = 0
+                    Userid = int.Parse(Application.Current.Properties["UserId"].ToString())
                 }); 
                 CategoryNameEntry.Text = string.Empty;
                 DescriptionEntry.Text = string.Empty;

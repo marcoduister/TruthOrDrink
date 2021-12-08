@@ -32,22 +32,17 @@ namespace TruthOrDrink.Views.Category
         {
             if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text) && !string.IsNullOrWhiteSpace(DescriptionEntry.Text))
             {
-                await App.Database.UpdateCategoryAsync(new Model.Category
-                {
-                    Id = _Id,
-                    Name = CategoryNameEntry.Text,
-                    Description = DescriptionEntry.Text,
-                    Date = DateTime.Now,
-                    Userid = 0
-                }); 
+                _Category.Name = CategoryNameEntry.Text;
+                _Category.Description = DescriptionEntry.Text;
+
+                await App.Database.UpdateCategoryAsync(_Category);
+
                 CategoryNameEntry.Text = string.Empty;
                 DescriptionEntry.Text = string.Empty;
-
 
                 _ = Navigation.PopAsync();
 
             }
-
         }
     }
 }

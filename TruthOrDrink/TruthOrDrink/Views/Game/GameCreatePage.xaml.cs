@@ -23,7 +23,7 @@ namespace TruthOrDrink.Views.Game
             var items = new List<string>();
             for (int i = 0; i < 3; i++)
             {
-                items.Add(string.Format("Category {0}", i));
+                items.Add(string.Format("player {0}", i));
             }
 
             PlayerList.ItemsSource = items;

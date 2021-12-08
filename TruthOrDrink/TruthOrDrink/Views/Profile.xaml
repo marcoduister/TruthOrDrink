@@ -10,20 +10,24 @@
     <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
         <StackLayout Orientation="Vertical" Spacing="10">
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="NickNameEntry" Text="{Binding CategoryNameEntry}" Placeholder="NickName"/>
+                <Entry x:Name="NickNameEntry" Text="{Binding NickNameEntry}" Placeholder="NickName"/>
             </Frame>
             <Label x:Name="NickNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="PasswordEntry" Text="{Binding DescriptionEntry}" Placeholder="Password" IsPassword="True" />
+                <Entry x:Name="OldPasswordEntry" Text="{Binding OldPasswordEntry}" Placeholder="Old Password" IsPassword="True" />
             </Frame>
-            <Label x:Name="PasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label x:Name="OldPasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="PasswordconfirmEntry" Text="{Binding DescriptionEntry}" Placeholder="Password" IsPassword="True" />
+                <Entry x:Name="NewPasswordEntry" Text="{Binding NewPasswordEntry}" Placeholder="New Password" IsPassword="True" />
             </Frame>
-            <Label x:Name="PasswordconfirmEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label x:Name="NewPasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Frame Style="{StaticResource FrameEntryStyle}">
+                <Entry x:Name="NewPasswordConfirmEntry" Text="{Binding NewPasswordConfirmEntry}" Placeholder="Confirm new Password" IsPassword="True" />
+            </Frame>
+            <Label x:Name="NewPasswordConfirmEntryLabel" Style="{StaticResource ErrorLabel}"/>
         </StackLayout>
 
-        <Button x:Name="UpdateProfileButton" Text="Update" />
+        <Button x:Name="UpdateProfileButton" Clicked="UpdateProfileButton_ClickedAsync" Text="Update" />
 
     </StackLayout>
 </ContentPage>

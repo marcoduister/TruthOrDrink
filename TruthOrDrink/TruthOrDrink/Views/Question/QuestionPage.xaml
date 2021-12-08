@@ -9,7 +9,7 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddQuestionButton"   Priority="0" Order="Primary" Clicked="AddQuestionButton_Clicked"/>
+        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddQuestionButton"   Priority="0" Order="Primary"  Clicked="AddQuestionButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <ListView x:Name="QuestionList" IsPullToRefreshEnabled="true" HasUnevenRows="True" RowHeight="60" >

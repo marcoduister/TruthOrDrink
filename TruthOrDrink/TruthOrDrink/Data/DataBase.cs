@@ -23,9 +23,9 @@ namespace TruthOrDrink.Data
 
         #region Categories
 
-        public Task<List<Category>> GetCategoryAllAsync()
+        public Task<List<Category>> GetCategoryAllByUserIdAsync(int UserId)
         {
-            return _dataBase.Table<Category>().ToListAsync();
+            return _dataBase.Table<Category>().Where(e=>e.Userid == UserId) .ToListAsync();
         }
         public Task<Category> GetCategorybyIdAsync(int Id)
         {
@@ -49,9 +49,9 @@ namespace TruthOrDrink.Data
 
         #region Questions
 
-        public Task<List<Question>> GetQuestionAllAsync()
+        public Task<List<Question>> GetQuestionAllbyIdAsync(int Id)
         {
-            return _dataBase.Table<Question>().ToListAsync();
+            return _dataBase.Table<Question>().Where(e=>e.Categoryid ==Id).ToListAsync();
         }
         public Task<Question> GetQuestionbyIdAsync(int Id)
         {
@@ -60,6 +60,10 @@ namespace TruthOrDrink.Data
         public Task<int> InsertQuestionAsync(Question question)
         {
             return _dataBase.InsertAsync(question);
+        }
+        public Task<List<Question>> GetQuestionsAsync()
+        {
+            return _dataBase.Table<Question>().ToListAsync();
         }
 
         public Task<int> UpdateQuestionAsync(Question question)
@@ -77,10 +81,8 @@ namespace TruthOrDrink.Data
 
 
 
-        public Task<List<Question>> GetQuestionsAsync()
-        {
-            return _dataBase.Table<Question>().ToListAsync();
-        }
+
+
         public Task<List<Player>> GetPlayersAsync()
         {
             return _dataBase.Table<Player>().ToListAsync();
@@ -88,6 +90,14 @@ namespace TruthOrDrink.Data
         public async Task<User> GetUserAsync(string Email, string Password)
         {
             return await _dataBase.Table<User>().FirstOrDefaultAsync(e=>e.Email == Email && e.Password == Password);
+        }
+        public async Task<User> GetUserByIdAsync(int Id)
+        {
+            return await _dataBase.Table<User>().FirstOrDefaultAsync(e => e.Id == Id);
+        }
+        public Task<int> UpdateUserAsync(User user)
+        {
+            return _dataBase.UpdateAsync(user);
         }
         public async Task<User>  EmailExistAsync(string Email)
         {

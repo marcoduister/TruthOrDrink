@@ -12,7 +12,7 @@
         <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddCategorieButton" Priority="0" Order="Primary" Clicked="AddCategorieButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="CategoryList" IsPullToRefreshEnabled="true" ItemSelected="CategoryList_ItemSelected" HasUnevenRows="True" RowHeight="60" >
+    <ListView x:Name="CategoryList" IsPullToRefreshEnabled="true" ItemSelected="CategoryList_ItemSelected" BindingContext="{Binding Categoryid}" HasUnevenRows="True" RowHeight="60" >
         <ListView.ItemTemplate>
             <DataTemplate >
                 <ViewCell>
@@ -26,7 +26,7 @@
                                 <Label Text="{Binding Description}"
                                    HorizontalOptions="Start" VerticalOptions="Center" />
                             </StackLayout>
-
+                            
                             <ImageButton Source="SettingIcon.png" Clicked="CategoryEditButton_Clicked" BindingContext="{Binding Id}"/>
                             <ImageButton Source="trashicon.png" Clicked="CategoryDeleteButton_Clicked" BindingContext="{Binding Id}" />
 

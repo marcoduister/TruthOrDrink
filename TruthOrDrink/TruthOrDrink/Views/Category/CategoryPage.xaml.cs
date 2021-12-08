@@ -14,14 +14,16 @@ namespace TruthOrDrink.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
+        private int _UserId;
         public CategoryPage()
         {
             InitializeComponent();
+            _UserId = int.Parse(Application.Current.Properties["UserId"].ToString());
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CategoryList.ItemsSource = await App.Database.GetCategoryAllAsync();
+            CategoryList.ItemsSource = await App.Database.GetCategoryAllByUserIdAsync(_UserId);
         }
 
 
@@ -43,15 +45,17 @@ namespace TruthOrDrink.Views
                 {
                     await App.Database.DeleteCategoryAsync(category);
 
-                    CategoryList.ItemsSource = await App.Database.GetCategoryAllAsync();
+                    CategoryList.ItemsSource = await App.Database.GetCategoryAllByUserIdAsync(_UserId);
                 }
             }
-            
         }
 
         private void CategoryList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushAsync(new QuestionPage());
+            var categorie = (Model.Category) e.SelectedItem;
+
+            int Id = categorie.Id;
+            Navigation.PushAsync(new QuestionPage(Id));
         }
 
         private void CategoryEditButton_Clicked(object sender, EventArgs e)

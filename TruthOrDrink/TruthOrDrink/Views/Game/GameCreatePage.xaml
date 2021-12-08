@@ -39,8 +39,8 @@
                                 <AbsoluteLayout HeightRequest="60" >
                                     <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
                                    AbsoluteLayout.LayoutFlags="PositionProportional" />
-
-                                    <ImageButton x:Name="PlayerDeleteButton" Source="trashicon.png" Clicked="PlayerDeleteButton_Clicked" />
+                                    
+                                    <ImageButton x:Name="PlayerDeleteButton"  Source="trashicon.png" Clicked="PlayerDeleteButton_Clicked" />
                                 </AbsoluteLayout>
                             </Frame>
                         </ViewCell>

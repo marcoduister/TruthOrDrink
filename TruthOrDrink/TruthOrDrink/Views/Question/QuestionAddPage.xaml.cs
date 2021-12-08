@@ -12,14 +12,29 @@ namespace TruthOrDrink.Views.Question
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuestionAddPage : ContentPage
     {
-        public QuestionAddPage()
+        private int CategoryId;
+        public QuestionAddPage(int id)
         {
             InitializeComponent();
+            CategoryId = id;
         }
 
-        private void CreateQuestionButton_Clicked(object sender, EventArgs e)
+        private async void CreateQuestionButton_Clicked(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(QuestionEntry.Text))
+            {
+                await App.Database.InsertQuestionAsync(new Model.Question
+                {
+                    QuestionItem = QuestionEntry.Text,
+                    Categoryid =  CategoryId,
+                    Date = DateTime.Now,
+                    Userid = int.Parse(Application.Current.Properties["UserId"].ToString())
+                });
+                QuestionEntry.Text = string.Empty;
 
+                _ = Navigation.PopAsync();
+
+            }
         }
     }
 }
