@@ -2,11 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.GameRules">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="Truth or drink rules"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout>
+
+                    <Label Text="The game has no maximum players" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The game must have at least 3 players" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The game has 2 types of cards. an everyone card and single card. With a Single card, the person whose turn it is must answer the question. With an EveryOne card everyone has to answer" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The player with the most points at the end of the game wins" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The player who does not answer the question must drink" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The player who answers the question does not have to drink" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The player with lowest score has to drink a Shot" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The players has to have a playername and photo" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The players has does not have to read out loud" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="When there's a round EveryOne has to drink everyone who doesn't answer the question" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="If more than 1 person answers during an EveryOne, the Dealer must judge who gives the best answer. the persons who are not chosen must drink" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="Only poeple who wint the game get there name in ScoreBoard" FontSize="17" VerticalOptions="Center" />
+                    <Label Text="The dealer is not in the game" FontSize="17" VerticalOptions="Center" />
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
+
+    </ScrollView>
 </ContentPage>
