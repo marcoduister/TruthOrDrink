@@ -19,23 +19,32 @@ namespace TruthOrDrink.Views.Category
 
          async void CreateCategoryButton_ClickedAsync(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text) && !string.IsNullOrWhiteSpace(DescriptionEntry.Text))
+            if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text))
             {
-                await App.Database.InsertCategoryAsync(new Model.Category
+                if (!string.IsNullOrWhiteSpace(DescriptionEntry.Text))
                 {
-                    Name = CategoryNameEntry.Text,
-                    Description = DescriptionEntry.Text,
-                    Date = DateTime.Now,
-                    Userid = int.Parse(Application.Current.Properties["UserId"].ToString())
-                }); 
-                CategoryNameEntry.Text = string.Empty;
-                DescriptionEntry.Text = string.Empty;
+                    await App.Database.InsertCategoryAsync(new Model.Category
+                    {
+                        Name = CategoryNameEntry.Text,
+                        Description = DescriptionEntry.Text,
+                        Date = DateTime.Now,
+                        Userid = int.Parse(Application.Current.Properties["UserId"].ToString())
+                    });
+                    CategoryNameEntry.Text = string.Empty;
+                    DescriptionEntry.Text = string.Empty;
 
 
-                _ = Navigation.PopAsync();
-
+                    _ = Navigation.PopAsync();
+                }
+                else
+                {
+                    DescriptionEntry.Text = "Please enter Desription"; DescriptionEntry.IsVisible = true;
+                }
             }
-
+            else
+            {
+                CategoryNameEntry.Text = "Please enter categorie name"; CategoryNameEntry.IsVisible = true;
+            }
         }
     }
 }

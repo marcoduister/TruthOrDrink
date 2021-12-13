@@ -52,5 +52,10 @@ namespace TruthOrDrink.Views
         {
             Navigation.PushAsync(new Profile());
         }
+
+        private void DrinkGeneraterRedirectButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new cocktailGenerate());
+        }
     }
 }

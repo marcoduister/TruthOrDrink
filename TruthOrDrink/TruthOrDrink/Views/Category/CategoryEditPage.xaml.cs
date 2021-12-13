@@ -30,18 +30,28 @@ namespace TruthOrDrink.Views.Category
 
         async void EditCategoryButton_ClickedAsync(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text) && !string.IsNullOrWhiteSpace(DescriptionEntry.Text))
+            if (!string.IsNullOrWhiteSpace(CategoryNameEntry.Text))
             {
-                _Category.Name = CategoryNameEntry.Text;
-                _Category.Description = DescriptionEntry.Text;
+                if (!string.IsNullOrWhiteSpace(DescriptionEntry.Text))
+                {
+                    _Category.Name = CategoryNameEntry.Text;
+                    _Category.Description = DescriptionEntry.Text;
 
-                await App.Database.UpdateCategoryAsync(_Category);
+                    await App.Database.UpdateCategoryAsync(_Category);
 
-                CategoryNameEntry.Text = string.Empty;
-                DescriptionEntry.Text = string.Empty;
+                    CategoryNameEntry.Text = string.Empty;
+                    DescriptionEntry.Text = string.Empty;
 
-                _ = Navigation.PopAsync();
-
+                    _ = Navigation.PopAsync();
+                }
+                else
+                {
+                    DescriptionEntryLabel.Text = "Please enter Desription"; DescriptionEntryLabel.IsVisible = true;
+                }
+            }
+            else
+            {
+                CategoryNameEntryLabel.Text = "Please enter categorie name"; CategoryNameEntryLabel.IsVisible = true;
             }
         }
     }

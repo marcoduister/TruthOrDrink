@@ -10,13 +10,16 @@ namespace TruthOrDrink
     public partial class App : Application
     {
         private static DataBase database;
+
+        private static string DatabaseLocation = string.Empty;
+
         public static DataBase Database
         {
             get
             {
                 if (database == null)
                 {
-                    database = new DataBase(Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "TruthOrDrink.db3"));
+                    database = new DataBase(DatabaseLocation);
                 }
                 return database;
             }
@@ -26,6 +29,13 @@ namespace TruthOrDrink
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new MainPage());
+        }
+
+        public App(string DBlocation)
+        {
+            InitializeComponent();
+            DatabaseLocation = DBlocation;
             MainPage = new NavigationPage(new MainPage());
         }
 

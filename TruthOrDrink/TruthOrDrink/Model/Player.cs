@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace TruthOrDrink.Model
 {
@@ -16,13 +17,17 @@ namespace TruthOrDrink.Model
         [Column("Score")]
         public int Score { get; set; }
         [Column("ProfileImage")]
-        public byte ProfileImage { get; set; }
-        [Indexed]
-        [Column("Game_Id")]
+        public byte[] ProfileImage { get; set; }
+
+        [Column("Gameid")]
+        [ForeignKey(typeof(Game))]
         public int Gameid { get; set; }
 
-       
+        [OneToOne]
+        public Scoreboard Scoreboard { get; set; }
 
+        [ManyToOne]
+        public Game Game { get; set; }
 
 
     }

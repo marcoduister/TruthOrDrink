@@ -13,6 +13,7 @@
                 <Frame Style="{StaticResource FrameEntryStyle}">
                     <Entry x:Name="QuestionNameEntry" Text="{Binding QuestionNameEntry}" Placeholder="Question"/>
                 </Frame>
+                <Label x:Name="QuestionNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
             </StackLayout>
 
             <Button x:Name="EditQuestionButton" Text="Edit" Clicked="EditQuestionButton_ClickedAsync"/>

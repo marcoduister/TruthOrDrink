@@ -14,7 +14,7 @@
 
     <ListView x:Name="CategoryList" IsPullToRefreshEnabled="true" ItemSelected="CategoryList_ItemSelected" BindingContext="{Binding Categoryid}" HasUnevenRows="True" RowHeight="60" >
         <ListView.ItemTemplate>
-            <DataTemplate >
+            <DataTemplate>
                 <ViewCell>
                     <Frame Style="{StaticResource Listviewstyle}" >
                         <StackLayout Orientation="Horizontal"  HorizontalOptions="Fill" HeightRequest="60"  Margin="0,1,0,1" >

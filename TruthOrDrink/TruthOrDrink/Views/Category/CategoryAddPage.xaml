@@ -13,9 +13,11 @@
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="CategoryNameEntry" Text="{Binding CategoryNameEntry}" Placeholder="Category Name"/>
             </Frame>
+            <Label x:Name="CategoryNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="DescriptionEntry" Text="{Binding DescriptionEntry}" Placeholder="Description" />
             </Frame>
+            <Label x:Name="DescriptionEntryLabel" Style="{StaticResource ErrorLabel}"/>
 
         </StackLayout>
 

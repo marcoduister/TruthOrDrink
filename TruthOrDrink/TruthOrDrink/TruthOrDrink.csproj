@@ -11,8 +11,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\drawable\liqore.png" />
+    <None Remove="Assets\drawable\outline_add_white_24dp.png" />
+    <None Remove="Assets\drawable\PlaceholderPlayer.png" />
+    <None Remove="Assets\drawable\Profile.png" />
+    <None Remove="Assets\drawable\SettingIcon.png" />
+    <None Remove="Assets\drawable\trashicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\drawable\liqore.png" />
+    <EmbeddedResource Include="Assets\drawable\outline_add_white_24dp.png" />
+    <EmbeddedResource Include="Assets\drawable\PlaceholderPlayer.png" />
+    <EmbeddedResource Include="Assets\drawable\Profile.png" />
+    <EmbeddedResource Include="Assets\drawable\SettingIcon.png" />
+    <EmbeddedResource Include="Assets\drawable\trashicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Material.Icons" Version="1.0.63" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+    <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
@@ -28,6 +49,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Category\CategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\cocktailGenerate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\GameRules.xaml">

@@ -10,10 +10,14 @@
     
     <StackLayout Orientation="Vertical" Padding="30" Spacing="25" >
         <StackLayout Orientation="Vertical" Spacing="10">
-            <Image Source="PlaceholderPlayer.png" />
+            <Frame HeightRequest="200" WidthRequest="200" BackgroundColor="Transparent" Padding="0" HasShadow="false">
+                <Image x:Name="ProfileImage" HeightRequest="50" WidthRequest="50" Source="PlaceholderPlayer.png" />
+            </Frame>
+            <Label x:Name="ProfileImageLabel" Style="{StaticResource ErrorLabel}"/>
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="PlayerName" Text="{Binding CategoryNameEntry}" Placeholder="NickName"/>
             </Frame>
+            <Label x:Name="PlayerNameLabel" Style="{StaticResource ErrorLabel}"/>
         </StackLayout>
 
         <Button x:Name="TakePhotoButton" Text="Take Photo" Clicked="TakePhotoButton_Clicked" />

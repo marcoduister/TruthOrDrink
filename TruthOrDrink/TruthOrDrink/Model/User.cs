@@ -2,6 +2,7 @@
 using SQLite;
 using System.Collections.Generic;
 using System.Text;
+using SQLiteNetExtensions.Attributes;
 
 namespace TruthOrDrink.Model
 {
@@ -17,6 +18,15 @@ namespace TruthOrDrink.Model
         public string NickName { get; set; }
         [Column("Password")]
         public string Password { get; set; }
+
+        [OneToMany]
+        public List<Question> QuestionList { get; set; }
+
+        [OneToMany]
+        public List<Category> CategoryList { get; set; }
+
+        [OneToMany]
+        public List<Game> GameList { get; set; }
 
     }
 }

@@ -13,6 +13,7 @@
             <Frame Style="{StaticResource FrameEntryStyle}" >
                 <Entry x:Name="QuestionEntry" Text="{Binding QuestionEntry}" Placeholder="Question"/>
             </Frame>
+            <Label x:Name="QuestionNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
         </StackLayout>
 
 

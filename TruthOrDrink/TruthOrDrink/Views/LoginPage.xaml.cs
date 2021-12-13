@@ -16,6 +16,12 @@ namespace TruthOrDrink.Views
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            EmailEntry.Text = "marcoduister@hotmail.com";
+            PasswordEntry.Text = "Qwerty";
+        }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {

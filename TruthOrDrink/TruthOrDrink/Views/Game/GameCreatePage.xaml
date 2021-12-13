@@ -16,15 +16,9 @@
             <StackLayout Orientation="Vertical" Spacing="10">
                 <Label FontSize="20" Text="Category" />
                 <Frame Style="{StaticResource FrameEntryStyle}">
-                    <Picker Title="Pick a category"  TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" x:Name="picker">
-                        <Picker.Items>
-                            <x:String>udnie</x:String>
-                            <x:String>wave</x:String>
-                            <x:String>la_muse</x:String>
-                            <x:String>rain_princess</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    <Picker x:Name="Categorypicker" Title="Pick a category"  SelectedItem="{Binding Id}" BindingContext="{Binding Id}" ItemDisplayBinding="{Binding Name}"  TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" />
                 </Frame>
+                <Label x:Name="CategoryPickerLabel" Style="{StaticResource ErrorLabel}"/>
             </StackLayout>
 
             <Button x:Name="playButton" Clicked="playButton_Clicked" Text="Play" Margin="0,30,0,0" />
@@ -37,7 +31,7 @@
                         <ViewCell>
                             <Frame Style="{StaticResource Listviewstyle}" >
                                 <AbsoluteLayout HeightRequest="60" >
-                                    <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
+                                    <Label Text="{Binding Playername}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
                                    AbsoluteLayout.LayoutFlags="PositionProportional" />
                                     
                                     <ImageButton x:Name="PlayerDeleteButton"  Source="trashicon.png" Clicked="PlayerDeleteButton_Clicked" />

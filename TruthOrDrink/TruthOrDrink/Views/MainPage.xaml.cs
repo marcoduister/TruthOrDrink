@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TruthOrDrink.Views;
+using TruthOrDrink.Views.Game;
 using Xamarin.Forms;
 
 namespace TruthOrDrink.Views
@@ -31,6 +32,11 @@ namespace TruthOrDrink.Views
         private void LoginRedirectButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new LoginPage());
+        }
+
+        private void tmp_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GamePage(null,null,null));
         }
     }
 }

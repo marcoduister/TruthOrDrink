@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace TruthOrDrink.Model
 {
@@ -13,14 +14,22 @@ namespace TruthOrDrink.Model
         [Column("Id")]
         public int Id { get; set; }
         [Column("PlayerName")]
-        public string PlayerName { get; set; }
+        public string PlayerName { get { return player.Playername; } }
         [Column("Date")]
         public DateTime Date { get; set; }
-        [Indexed]
-        [Column("Player_Id")]
+
+        [Column("Playerid")]
+        [ForeignKey(typeof(Player))]
         public int Playerid { get; set; }
-        [Indexed]
-        [Column("Game_id")]
+
+        [Column("Gameid")]
+        [ForeignKey(typeof(Game))]
         public int Gameid { get; set; }
+
+        [ManyToOne]
+        public Player player { get; set; }
+
+        [OneToOne]
+        public Game Game { get; set; }
     }
 }

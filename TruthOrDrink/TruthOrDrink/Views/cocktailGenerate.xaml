@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.cocktailGenerate">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="GenerateButton" Text="Next Drink"  Clicked="GenerateButton_Clicked" />
+            <StackLayout>
+                <ListView HasUnevenRows="True" x:Name="CockTailsview">
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Image" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="Name"  Grid.Column="1" Grid.Row="0" />
+                            <Label Text="Ingrediants"  Grid.Column="2" Grid.Row="0"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image  Grid.Column="0" HeightRequest="75" Source="{Binding strDrinkThumb }" />
+                                    <Label Grid.Column="1" FontSize="Medium"  Text="{Binding StrDrink }" />
+                                    <Label  Grid.Column="2" FontSize="Small"  Text="{Binding AllIngrediants}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,7 +24,12 @@ namespace TruthOrDrink.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            string DbName = "TruthOrDrink.db.sqlLite";
+            string Folderpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string FullPath = Path.Combine(Folderpath, DbName);
+
+            LoadApplication(new App(FullPath));
 
             return base.FinishedLaunching(app, options);
         }

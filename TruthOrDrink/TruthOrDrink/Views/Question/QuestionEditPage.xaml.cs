@@ -36,6 +36,10 @@ namespace TruthOrDrink.Views.Question
 
                 _ = Navigation.PopAsync();
             }
+            else
+            {
+                QuestionNameEntryLabel.Text = "Please enter Question"; QuestionNameEntryLabel.IsVisible = true;
+            }
         }
     }
 }

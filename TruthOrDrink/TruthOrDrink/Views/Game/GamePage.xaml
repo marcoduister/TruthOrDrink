@@ -18,7 +18,7 @@
                 </AbsoluteLayout>
             </Frame>
             <Frame Style="{StaticResource Listviewstyle}" VerticalOptions="FillAndExpand" >
-                <StackLayout Orientation="Vertical" HeightRequest="120">
+                <StackLayout Orientation="Vertical" HeightRequest="-1">
                     <Label x:Name="TypeQuestionLabel" Text="Typ" Style="{StaticResource TypeQuestionLabelStyle}"/>
                     <Label x:Name="QuestionLabel" Text="If you could get away with crime for a day, what crime would you commit and why?" 
                            Style="{StaticResource QuestionLabelStyle}"/>
@@ -26,8 +26,9 @@
             </Frame>
         </StackLayout>
         <StackLayout Orientation="Horizontal" Margin="40"  VerticalOptions="EndAndExpand">
-            <Button Text="Drink" x:Name="GameDrinkButton" Clicked="GameDrinkButton_Clicked" Style="{StaticResource buttonStyle}"/>
-            <Button Text="Truth" x:Name="GameTruthButton" Clicked="GameTruthButton_Clicked"  Style="{StaticResource buttonStyle}"/>
+            <Button Text="Drink" x:Name="GameDrinkButton" Clicked="GameDrinkButton_Clicked"/>
+            <Button Text="Truth" x:Name="GameTruthButton" Clicked="GameTruthButton_Clicked"/>
+            <Button Text="Judge" x:Name="GameJudgeButton" Clicked="GameJudgeButton_Clicked"/>
         </StackLayout>
         
     </StackLayout>

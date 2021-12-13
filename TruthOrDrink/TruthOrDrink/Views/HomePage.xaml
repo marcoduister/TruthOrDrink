@@ -11,6 +11,7 @@
             <ImageButton x:Name="Profilebutton" Source="Profile.png" Clicked="Profilebutton_Clicked" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25"/>
         </StackLayout>
     </NavigationPage.TitleView>
+
     <StackLayout>
         <StackLayout>
             <Frame Style="{StaticResource LogoFrameStyle}" >
@@ -18,11 +19,14 @@
             </Frame>
             <Image Source="liqore.png" />
         </StackLayout>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
-            <Button x:Name="PlayRedirectButton" Text="Play" Clicked="PlayRedirectButton_Clicked" />
-            <Button x:Name="GameRulesRedirectButton" Text="Game Rules" Clicked="GameRulesRedirectButton_Clicked" />
-            <Button x:Name="CategoryRedirectButton" Text="Categorys" Clicked="CategoryRedirectButton_Clicked" />
-            <Button x:Name="ScoreboardRedirectButton" Text="Scoreboard" Clicked="ScoreboardRedirectButton_Clicked" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <Button x:Name="PlayRedirectButton" Text="Play" Clicked="PlayRedirectButton_Clicked" />
+                <Button x:Name="GameRulesRedirectButton" Text="Game Rules" Clicked="GameRulesRedirectButton_Clicked" />
+                <Button x:Name="CategoryRedirectButton" Text="Categorys" Clicked="CategoryRedirectButton_Clicked" />
+                <Button x:Name="ScoreboardRedirectButton" Text="Scoreboard" Clicked="ScoreboardRedirectButton_Clicked" />
+                <Button x:Name="DrinkGeneraterRedirectButton" Text="RandomDrinks" Clicked="DrinkGeneraterRedirectButton_Clicked" />
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 </ContentPage>
