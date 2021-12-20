@@ -14,13 +14,11 @@
 
     <StackLayout>
         <StackLayout>
-            <Frame Style="{StaticResource LogoFrameStyle}" >
-                <Label Text="Truth or Drink" Style="{StaticResource LogoLabelStyle}"/>
-            </Frame>
-            <Image Source="liqore.png" />
+            <Image Style="{StaticResource LogoStyle}" />
         </StackLayout>
         <ScrollView>
             <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <Label Text="scrollable" />
                 <Button x:Name="PlayRedirectButton" Text="Play" Clicked="PlayRedirectButton_Clicked" />
                 <Button x:Name="GameRulesRedirectButton" Text="Game Rules" Clicked="GameRulesRedirectButton_Clicked" />
                 <Button x:Name="CategoryRedirectButton" Text="Categorys" Clicked="CategoryRedirectButton_Clicked" />

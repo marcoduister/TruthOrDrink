@@ -11,8 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\drawable\Addicon.png" />
     <None Remove="Assets\drawable\liqore.png" />
-    <None Remove="Assets\drawable\outline_add_white_24dp.png" />
+    <None Remove="Assets\drawable\Logo.png" />
     <None Remove="Assets\drawable\PlaceholderPlayer.png" />
     <None Remove="Assets\drawable\Profile.png" />
     <None Remove="Assets\drawable\SettingIcon.png" />
@@ -21,7 +22,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\drawable\liqore.png" />
-    <EmbeddedResource Include="Assets\drawable\outline_add_white_24dp.png" />
+    <EmbeddedResource Include="Assets\drawable\Addicon.png" />
+    <EmbeddedResource Include="Assets\drawable\Logo.png" />
     <EmbeddedResource Include="Assets\drawable\PlaceholderPlayer.png" />
     <EmbeddedResource Include="Assets\drawable\Profile.png" />
     <EmbeddedResource Include="Assets\drawable\SettingIcon.png" />
@@ -34,7 +36,8 @@
     <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
@@ -75,7 +78,7 @@
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoginPage.xaml">
+    <EmbeddedResource Update="Views\Acces\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Profile.xaml">
@@ -90,7 +93,7 @@
     <EmbeddedResource Update="Views\Question\QuestionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegistrationPage.xaml">
+    <EmbeddedResource Update="Views\Acces\RegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -6,17 +6,12 @@
 
     <StackLayout>
         <StackLayout>
-            <Frame Style="{StaticResource LogoFrameStyle}" >
-                <Label Text="Truth or Drink" Style="{StaticResource LogoLabelStyle}"/>
-            </Frame>
-            <Image Source="TruthOrDrink/Assets/drawable/liqore.png" />
+            <Image Style="{StaticResource LogoStyle}" />
         </StackLayout>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
 
             <Button x:Name="LoginreRedirectButton" Text="Login"  Clicked="LoginRedirectButton_Clicked" />
             <Button x:Name="RegisterRedirectButton" Text="Register" Clicked="RegisterRedirectButton_Clicked" />
-            <Button x:Name="tmp" Text="Register" Clicked="tmp_Clicked" />
         </StackLayout>
     </StackLayout>
-
 </ContentPage>

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,23 +34,20 @@ namespace TruthOrDrink.Views.Game
 
             Categorypicker.ItemsSource = await App.Database.GetCategoryAllByUserIdAsync(_UserId);
             PlayerList.ItemsSource = await App.Database.GetPlayersByGameIdAsync(Gameplay.Id);
+            var scoreboard = await App.Database.GetScoreboardByGameIdAsync(Gameplay.Id);
+            if (scoreboard.Count() != 0)
+            {
+                await Navigation.PopAsync();
+            }
         }
+
 
         private void AddPlayerButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new GameUserAddPage(Gameplay.Id));
         }
 
-        private async void PlayerDeleteButton_Clicked(object sender, EventArgs e)
-        {
-            bool answer = await DisplayAlert("Deleting a player?", "are you sure you want to do this", "Yes", "No");
-            if (answer)
-            {
-                Debug.WriteLine("Answer: " + answer);
-            }
-        }
-
-        private async void playButton_Clicked(object sender, EventArgs e)
+        private async void PlayButton_Clicked(object sender, EventArgs e)
         {
 
             if ((Model.Category)Categorypicker.SelectedItem != null)
@@ -63,24 +62,7 @@ namespace TruthOrDrink.Views.Game
                 }
                 else
                 {
-                    List<Model.Question> Questions = await App.Database.GetQuestionAllbyIdAsync(Gameplay.Categoryid);
-                    var count = Questions.Count() / players.Count();
-                    int UserCounter = 0;
-                    
-                    foreach (var question in Questions)
-                    {
-                        var hahah = players.Count();
-                        if (UserCounter > players.Count()-1)
-                        {
-                            _ = Navigation.PushAsync(new GamePage(Gameplay, null, question));
-                            UserCounter = 0;
-                        }
-                        else
-                        {
-                            _ = Navigation.PushAsync(new GamePage(Gameplay, players[UserCounter], question));
-                            UserCounter += 1;
-                        }                        
-                    }
+                    await Navigation.PushAsync(new GamePage(Gameplay));
                 }
             }
             else
@@ -94,6 +76,22 @@ namespace TruthOrDrink.Views.Game
             App.Database.DeleteGame(Gameplay);
             // true or false to disable or enable the action
             return base.OnBackButtonPressed();
+        }
+
+        private async void DeletePlayerButton_Clicked(object sender, EventArgs e)
+        {
+            string Id = ((ImageButton)sender).BindingContext.ToString();
+            bool answer = await DisplayAlert("Deleting a player?", "are you sure you want to do this", "Yes", "No");
+            if (answer)
+            {
+                Model.Player Player = await App.Database.GetPlayerById(int.Parse(Id));
+                if (Player != null)
+                {
+                    await App.Database.DeletePlayer(Player);
+
+                    PlayerList.ItemsSource = await App.Database.GetPlayersByGameIdAsync(Gameplay.Id);
+                }
+            }
         }
     }
 }

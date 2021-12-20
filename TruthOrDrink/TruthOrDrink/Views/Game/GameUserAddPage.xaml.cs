@@ -56,14 +56,14 @@ namespace TruthOrDrink.Views.Game
         {
             if (!string.IsNullOrWhiteSpace(PlayerName.Text))
             {
-                if (imageArray == null)// != null maken naar testen
+                if (imageArray != null)// != null maken naar testen
                 {
                     Model.Player NewPlayer = new Model.Player()
                     {
                         Playername = PlayerName.Text,
                         Gameid = _GameId,
                         Score = 0,
-                        //ProfileImage = imageArray
+                        ProfileImage = imageArray
                     };
                     App.Database.InsertPlayers(NewPlayer);
                     _ = Navigation.PopAsync();

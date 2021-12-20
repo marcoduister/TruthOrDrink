@@ -18,6 +18,8 @@ namespace TruthOrDrink.Model
         public string NickName { get; set; }
         [Column("Password")]
         public string Password { get; set; }
+        [Column("Salt")]
+        public string Salt { get; set; }
 
         [OneToMany]
         public List<Question> QuestionList { get; set; }

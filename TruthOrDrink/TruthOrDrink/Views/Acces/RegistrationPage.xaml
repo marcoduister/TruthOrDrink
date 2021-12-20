@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.RegistrationPage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Registration" Style="{StaticResource TitleViewStyle}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout>
+                <Image Style="{StaticResource LogoStyle}" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label FontSize="18" Text="Email Adress *" />
+                    <Frame Style="{StaticResource FrameEntryStyle}">
+                        <Entry x:Name="EmailEntry" Text="{Binding EmailEntry}"/>
+                    </Frame>
+                    <Label x:Name="EmailEntryLabel" Style="{StaticResource ErrorLabel}"/>
+                    <Label FontSize="18" Text="NickName *" />
+                    <Frame Style="{StaticResource FrameEntryStyle}" >
+                        <Entry x:Name="NickNameEntry" Text="{Binding NickNameEntry}"/>
+                    </Frame>
+                    <Label x:Name="NickNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
+                    <Label FontSize="18" Text="Password *" />
+                    <Frame Style="{StaticResource FrameEntryStyle}" >
+                        <Entry x:Name="PasswordEntry" Text="{Binding PasswordEntry}" IsPassword="True"/>
+                    </Frame>
+                    <Label x:Name="PasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
+                    <Label FontSize="18" Text="Password Again *" />
+                    <Frame Style="{StaticResource FrameEntryStyle}" >
+                        <Entry x:Name="PasswordconfirmEntry" Text="{Binding PasswordEntry}" IsPassword="True"/>
+                    </Frame>
+                    <Label x:Name="PasswordconfirmEntryLabel" Style="{StaticResource ErrorLabel}"/>
+
+                </StackLayout>
+
+                <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" Text="Register"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

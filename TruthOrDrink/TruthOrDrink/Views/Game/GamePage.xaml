@@ -13,24 +13,37 @@
             <!-- top controls -->
             <Frame Style="{StaticResource Listviewstyle}" VerticalOptions="FillAndExpand" >
                 <AbsoluteLayout HeightRequest="60" >
-                    <Label x:Name="PlayerName" Text="{Binding Name}" Style="{StaticResource GamePlayerNameStyle}"/>
-                    <Label x:Name="PlayerScore" Text="{Binding Score}"  Style="{StaticResource PlayerScorestyle}"/>
+                    <Label x:Name="WhoIsLabel" Style="{StaticResource GamePlayerNameStyle}"/>
+                    <Label x:Name="PlayerScore"  Style="{StaticResource PlayerScorestyle}"/>
                 </AbsoluteLayout>
             </Frame>
             <Frame Style="{StaticResource Listviewstyle}" VerticalOptions="FillAndExpand" >
                 <StackLayout Orientation="Vertical" HeightRequest="-1">
-                    <Label x:Name="TypeQuestionLabel" Text="Typ" Style="{StaticResource TypeQuestionLabelStyle}"/>
-                    <Label x:Name="QuestionLabel" Text="If you could get away with crime for a day, what crime would you commit and why?" 
-                           Style="{StaticResource QuestionLabelStyle}"/>
+
+                    <Label x:Name="QuestionLabel" Style="{StaticResource QuestionLabelStyle}"/>
+
                 </StackLayout>
             </Frame>
+
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="40"  VerticalOptions="EndAndExpand">
-            <Button Text="Drink" x:Name="GameDrinkButton" Clicked="GameDrinkButton_Clicked"/>
-            <Button Text="Truth" x:Name="GameTruthButton" Clicked="GameTruthButton_Clicked"/>
-            <Button Text="Judge" x:Name="GameJudgeButton" Clicked="GameJudgeButton_Clicked"/>
+
+        <StackLayout  VerticalOptions="EndAndExpand">
+            <Frame Style="{StaticResource Listviewstyle}" VerticalOptions="EndAndExpand" >
+                <StackLayout Orientation="Horizontal" HeightRequest="-1">
+                    <StackLayout>
+                        <Label FontSize="Medium" Text="Tilt you'r phone to Right(Truth) or Left(Drink) for 30sec to Aswser" />
+                        <Label FontSize="Large" x:Name="TiltCounter" Text="Sec 0"  />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout Orientation="Horizontal" Margin="40"  VerticalOptions="EndAndExpand">
+
+                <Button Text="Drink" x:Name="GameDrinkButton" Clicked="GameDrinkButton_Clicked"/>
+                <Button Text="Truth" x:Name="GameTruthButton" Clicked="GameTruthButton_Clicked"/>
+                <Button Text="Judge" x:Name="GameJudgeButton" Clicked="GameJudgeButton_Clicked"/>
+            </StackLayout>
         </StackLayout>
-        
+
     </StackLayout>
     
 </ContentPage>

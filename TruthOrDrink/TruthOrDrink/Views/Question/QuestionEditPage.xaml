@@ -10,8 +10,9 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
             <StackLayout Orientation="Vertical" Spacing="10" >
+                <Label FontSize="18" Text="Question *" />
                 <Frame Style="{StaticResource FrameEntryStyle}">
-                    <Entry x:Name="QuestionNameEntry" Text="{Binding QuestionNameEntry}" Placeholder="Question"/>
+                    <Entry x:Name="QuestionNameEntry" Text="{Binding QuestionNameEntry}"/>
                 </Frame>
                 <Label x:Name="QuestionNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
             </StackLayout>

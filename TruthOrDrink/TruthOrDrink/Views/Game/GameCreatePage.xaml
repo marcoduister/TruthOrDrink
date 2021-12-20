@@ -1,41 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.Game.GameCreatePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+            </ResourceDictionary>
+    </ContentPage.Resources>
     <NavigationPage.TitleView>
         <StackLayout>
             <Label Text="Create Game" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="outline_add_white_24dp.png" x:Name="AddPlayerButton"   Priority="0" Order="Primary" Clicked="AddPlayerButton_Clicked"/>
+        <ToolbarItem Icon="Addicon.png" x:Name="AddPlayerButton"   Priority="0" Order="Primary" Clicked="AddPlayerButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20">
         <StackLayout Padding="0,0,0,20">
             <StackLayout Orientation="Vertical" Spacing="10">
-                <Label FontSize="20" Text="Category" />
+                <Label FontSize="18" Text="Category *" />
                 <Frame Style="{StaticResource FrameEntryStyle}">
                     <Picker x:Name="Categorypicker" Title="Pick a category"  SelectedItem="{Binding Id}" BindingContext="{Binding Id}" ItemDisplayBinding="{Binding Name}"  TitleColor="white" TextColor="White" BackgroundColor="#FDAF01" />
                 </Frame>
                 <Label x:Name="CategoryPickerLabel" Style="{StaticResource ErrorLabel}"/>
             </StackLayout>
 
-            <Button x:Name="playButton" Clicked="playButton_Clicked" Text="Play" Margin="0,30,0,0" />
+            <Button x:Name="playButton" Clicked="PlayButton_Clicked" Text="Play" Margin="0,30,0,0" />
         </StackLayout>
         <StackLayout>
             <Label FontSize="28" TextColor="White" Text="Player List" />
-            <ListView x:Name="PlayerList" HasUnevenRows="True" RowHeight="60" >
+            <ListView x:Name="PlayerList" IsPullToRefreshEnabled="true" HasUnevenRows="True" RowHeight="60" >
                 <ListView.ItemTemplate>
-                    <DataTemplate >
+                    <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource Listviewstyle}" >
-                                <AbsoluteLayout HeightRequest="60" >
-                                    <Label Text="{Binding Playername}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
-                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                    
-                                    <ImageButton x:Name="PlayerDeleteButton"  Source="trashicon.png" Clicked="PlayerDeleteButton_Clicked" />
-                                </AbsoluteLayout>
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="Fill" HeightRequest="60"  Margin="0,1,0,1" >
+
+                                    <Image x:Name="ProfileImagePlace" Source="{Binding ProfileImage, Converter={StaticResource ByteArrayToImage}}" HorizontalOptions="Start" VerticalOptions="Center" />
+                                    <Label Text="{Binding Playername}" Font="Bold,17" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+                                    <ImageButton x:Name="DeletePlayerButton" Clicked="DeletePlayerButton_Clicked" Source="trashicon.png" BindingContext="{Binding Id}" />
+
+                                </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>

@@ -14,8 +14,9 @@
                 <Image x:Name="ProfileImage" HeightRequest="50" WidthRequest="50" Source="PlaceholderPlayer.png" />
             </Frame>
             <Label x:Name="ProfileImageLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label FontSize="18" Text="Player Name *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="PlayerName" Text="{Binding CategoryNameEntry}" Placeholder="NickName"/>
+                <Entry x:Name="PlayerName" Text="{Binding CategoryNameEntry}"/>
             </Frame>
             <Label x:Name="PlayerNameLabel" Style="{StaticResource ErrorLabel}"/>
         </StackLayout>

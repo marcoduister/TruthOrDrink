@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using TruthOrDrink.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,12 +54,15 @@ namespace TruthOrDrink.Views
                     var User = await App.Database.EmailExistAsync(Email);
                     if (User == null)
                     {
+                        string salt = SecurityHelper.GenerateSalt(70);
+                        string pwdHashed = SecurityHelper.HashPassword(PasswordConfirm, salt, 10101, 70);
+
                         await App.Database.InsertUserAsync(new Model.User
                         {
                             Email = Email,
                             NickName = NickName,
-                            Password = PasswordConfirm
-
+                            Password = pwdHashed,
+                            Salt =salt
                         });
                         EmailEntry.Text = string.Empty;
                         PasswordconfirmEntry.Text = string.Empty;

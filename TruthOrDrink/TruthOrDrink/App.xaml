@@ -34,7 +34,10 @@
                 <Setter Property="BackgroundColor"  Value="#101010"/>
             </Style>
 
-
+            <Style x:Key="LogoStyle" TargetType="Image">
+                <Setter Property="Source" Value="Logo.png" />
+                <Setter Property="Margin" Value="25"/>
+            </Style>
 
             <Style x:Key="TitleViewStyle" TargetType="Label">
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>

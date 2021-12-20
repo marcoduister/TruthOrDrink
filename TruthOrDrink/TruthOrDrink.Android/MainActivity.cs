@@ -9,7 +9,7 @@ using Plugin.Media;
 
 namespace TruthOrDrink.Droid
 {
-    [Activity(Label = "TruthOrDrink", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "TruthOrDrink", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -20,7 +20,7 @@ namespace TruthOrDrink.Droid
             Window.SetStatusBarColor(Android.Graphics.Color.Rgb(79, 69, 69));
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
-            _ = CrossMedia.Current.Initialize();
+            await CrossMedia.Current.Initialize();
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 

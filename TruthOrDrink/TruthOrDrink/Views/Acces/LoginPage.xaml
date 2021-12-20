@@ -6,20 +6,18 @@
     <StackLayout>
 
         <StackLayout>
-            <Frame Style="{StaticResource LogoFrameStyle}" >
-                <Label Text="Truth or Drink" Style="{StaticResource LogoLabelStyle}"/>
-            </Frame>
-            <Image Source="liqore.png" />
+            <Image Style="{StaticResource LogoStyle}" />
         </StackLayout>
-        
-        
+
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
             <StackLayout Orientation="Vertical" Spacing="10">
+                <Label FontSize="18" Text="Email Adress *" />
                 <Frame Style="{StaticResource FrameEntryStyle}" >
-                    <Entry x:Name="EmailEntry" Text="{Binding EmailEntry}" Placeholder="Email"/>
+                    <Entry x:Name="EmailEntry" Text="{Binding EmailEntry}"/>
                 </Frame>
+                <Label FontSize="18" Text="Password *" />
                 <Frame Style="{StaticResource FrameEntryStyle}" >
-                    <Entry x:Name="PasswordEntry" Text="{Binding PasswordEntry}" Placeholder="Password" IsPassword="True"/>
+                    <Entry x:Name="PasswordEntry" Text="{Binding PasswordEntry}" IsPassword="True"/>
                 </Frame>
                 <Label x:Name="ValidateLabel" Style="{StaticResource ErrorLabel}"/>
             </StackLayout>

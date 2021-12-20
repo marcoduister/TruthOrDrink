@@ -9,18 +9,22 @@
     </NavigationPage.TitleView>
     <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
         <StackLayout Orientation="Vertical" Spacing="10">
+            <Label FontSize="18" Text="NickName *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="NickNameEntry" Text="{Binding NickNameEntry}" Placeholder="NickName"/>
             </Frame>
             <Label x:Name="NickNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label FontSize="18" Text="Old Password *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="OldPasswordEntry" Text="{Binding OldPasswordEntry}" Placeholder="Old Password" IsPassword="True" />
             </Frame>
             <Label x:Name="OldPasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label FontSize="18" Text="New Password *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="NewPasswordEntry" Text="{Binding NewPasswordEntry}" Placeholder="New Password" IsPassword="True" />
             </Frame>
             <Label x:Name="NewPasswordEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label FontSize="18" Text="New Password Again *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
                 <Entry x:Name="NewPasswordConfirmEntry" Text="{Binding NewPasswordConfirmEntry}" Placeholder="Confirm new Password" IsPassword="True" />
             </Frame>

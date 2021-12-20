@@ -1,33 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TruthOrDrink.Views.Game.GameJudgePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="judge" Style="{StaticResource TitleViewStyle}" />
+            <Label Text="Judge Story" Style="{StaticResource TitleViewStyle}" />
         </StackLayout>
     </NavigationPage.TitleView>
     <StackLayout>
+        <Label FontSize="28" TextColor="White" Text="Select Best Truth" />
+        <ListView x:Name="PlayerList" IsPullToRefreshEnabled="true" ItemSelected="PlayerList_ItemSelected"  BindingContext="{Binding Id}" HasUnevenRows="True" RowHeight="60" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource Listviewstyle}" >
+                            <StackLayout Orientation="Horizontal"  HorizontalOptions="Fill" HeightRequest="60"  Margin="0,1,0,1" >
+                                <Image x:Name="ProfileImagePlace" Source="{Binding ProfileImage, Converter={StaticResource ByteArrayToImage}}" HorizontalOptions="Start" VerticalOptions="Center" />
 
-        <StackLayout>
-            <ListView x:Name="PlayerList" HasUnevenRows="True" RowHeight="60" >
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <ViewCell>
-                            <Frame Style="{StaticResource Listviewstyle}" >
-                                <AbsoluteLayout HeightRequest="60" >
-                                    <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
-                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                </AbsoluteLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-        <StackLayout>
-
-        </StackLayout>
+                                <Label Text="{Binding Playername}" Font="Bold,17" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 

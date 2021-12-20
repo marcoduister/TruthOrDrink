@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using TruthOrDrink.Views;
 using TruthOrDrink.Views.Game;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TruthOrDrink.Views
@@ -15,10 +17,19 @@ namespace TruthOrDrink.Views
         public MainPage()
         {
 
-                InitializeComponent();
-            
-            
+            InitializeComponent();
+
+
         }
+        public DateTime start = new DateTime();
+        public bool counter = false;
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+
+
         protected override bool OnBackButtonPressed()
         {
             return true;
@@ -32,11 +43,6 @@ namespace TruthOrDrink.Views
         private void LoginRedirectButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new LoginPage());
-        }
-
-        private void tmp_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new GamePage(null,null,null));
         }
     }
 }

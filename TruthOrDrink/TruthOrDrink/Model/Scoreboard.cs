@@ -14,7 +14,7 @@ namespace TruthOrDrink.Model
         [Column("Id")]
         public int Id { get; set; }
         [Column("PlayerName")]
-        public string PlayerName { get { return player.Playername; } }
+        public string PlayerName { get; set; }
         [Column("Date")]
         public DateTime Date { get; set; }
 

@@ -10,12 +10,14 @@
     
     <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
         <StackLayout Orientation="Vertical" Spacing="10" >
+            <Label FontSize="18" Text="Category Name *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="CategoryNameEntry" Text="{Binding CategoryNameEntry}" Placeholder="Category Name"/>
+                <Entry x:Name="CategoryNameEntry" Text="{Binding CategoryNameEntry}"/>
             </Frame>
             <Label x:Name="CategoryNameEntryLabel" Style="{StaticResource ErrorLabel}"/>
+            <Label FontSize="18" Text="Description *" />
             <Frame Style="{StaticResource FrameEntryStyle}">
-                <Entry x:Name="DescriptionEntry" Text="{Binding DescriptionEntry}" Placeholder="Description" />
+                <Entry x:Name="DescriptionEntry" Text="{Binding DescriptionEntry}" />
             </Frame>
             <Label x:Name="DescriptionEntryLabel" Style="{StaticResource ErrorLabel}"/>
 

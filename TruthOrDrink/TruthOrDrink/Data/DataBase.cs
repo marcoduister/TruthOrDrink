@@ -5,6 +5,7 @@ using System.Text;
 using TruthOrDrink.Model;
 using System.Threading.Tasks;
 using SQLiteNetExtensionsAsync.Extensions;
+using TruthOrDrink.Helpers;
 
 namespace TruthOrDrink.Data
 {
@@ -63,6 +64,7 @@ namespace TruthOrDrink.Data
         {
             return _dataBase.InsertAsync(question);
         }
+
         public Task<List<Question>> GetQuestionsAsync()
         {
             return _dataBase.Table<Question>().ToListAsync();
@@ -72,6 +74,9 @@ namespace TruthOrDrink.Data
         {
             return _dataBase.UpdateAsync(question);
         }
+
+
+
         public Task<int> DeleteQuestionAsync(Question question)
         {
             return _dataBase.DeleteAsync(question);
@@ -85,12 +90,20 @@ namespace TruthOrDrink.Data
         {
             return _dataBase.InsertAsync(newPlayer);
         }
+        public Task PlayerUpdate(Player player)
+        {
+            return _dataBase.UpdateAsync(player);
+        }
+        public Task<Player> GetPlayerById(int Id)
+        {
+            return _dataBase.Table<Player>().Where(e => e.Id == Id).FirstAsync();
+        }
 
         public Task<List<Player>> GetPlayersByGameIdAsync(int GameId)
         {
             return _dataBase.Table<Player>().Where(e => e.Gameid == GameId).ToListAsync();
         }
-        public Task<int> DeletePlayers(Player Player)
+        public Task<int> DeletePlayer(Player Player)
         {
             return _dataBase.DeleteAsync(Player);
         }
@@ -121,6 +134,32 @@ namespace TruthOrDrink.Data
 
         #endregion
 
+        #region scoreboard
+        public Task<int> inserScoreboard(Player player)
+        {
+            Scoreboard scoreboard = new Scoreboard()
+            {
+                Playerid = player.Id,
+                PlayerName = player.Playername,
+                Date = DateTime.Now,
+                Gameid = player.Gameid,
+
+            };
+            return _dataBase.InsertAsync(scoreboard);
+        }
+        public Task<List<Scoreboard>> GetScoreboardAllAsync()
+        {
+            return _dataBase.Table<Scoreboard>().ToListAsync();
+        }
+
+        public Task<List<Scoreboard>> GetScoreboardByGameIdAsync(int GameId)
+        {
+            return _dataBase.Table<Scoreboard>().Where(e => e.Gameid == GameId).ToListAsync();
+        }
+
+
+        #endregion
+
 
 
 
@@ -129,7 +168,11 @@ namespace TruthOrDrink.Data
 
         public async Task<User> GetUserAsync(string Email, string Password)
         {
-            return await _dataBase.Table<User>().FirstOrDefaultAsync(e=>e.Email == Email && e.Password == Password);
+
+            string salt = _dataBase.Table<User>().FirstAsync(e => e.Email == Email).Result.Salt;
+            string pwdHashed = SecurityHelper.HashPassword(Password, salt, 10101, 70);
+
+            return await _dataBase.Table<User>().FirstOrDefaultAsync(e=>e.Email == Email && e.Password == pwdHashed);
         }
 
         public async Task<User> GetUserByIdAsync(int Id)

@@ -12,21 +12,26 @@ namespace TruthOrDrink.Views.Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameJudgePage : ContentPage
     {
-        public GameJudgePage()
+        private Model.Game _Game;
+        public GameJudgePage(Model.Game Game)
         {
             InitializeComponent();
-            FillList();
+            _Game = Game;
+
         }
-        private void FillList()
+        protected override async void OnAppearing()
         {
-            var items = new List<string>();
-            for (int i = 0; i < 3; i++)
-            {
-                items.Add(string.Format("Category {0}", i));
-            }
+            base.OnAppearing();
+            PlayerList.ItemsSource = await App.Database.GetPlayersByGameIdAsync(_Game.Id);
+        }
 
-            PlayerList.ItemsSource = items;
+        private async void PlayerList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Model.Player Player = (Model.Player)e.SelectedItem;
+            Player.Score += 10;
 
+            await App.Database.PlayerUpdate(Player);
+            _ = Navigation.PopAsync();
         }
     }
 }

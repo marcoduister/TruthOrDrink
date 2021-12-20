@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Forms;
 
 namespace TruthOrDrink.Model
 {
