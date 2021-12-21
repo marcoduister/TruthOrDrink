@@ -7,7 +7,7 @@
         <ToolbarItem Text="Logout" x:Name="LogoutButton" Priority="0" Clicked="LogoutButton_Clicked" Order="Default"/>
     </ContentPage.ToolbarItems>
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="20,0,0,0" Spacing="0">
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="0">
             <ImageButton x:Name="Profilebutton" Source="Profile.png" Clicked="Profilebutton_Clicked" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25"/>
         </StackLayout>
     </NavigationPage.TitleView>

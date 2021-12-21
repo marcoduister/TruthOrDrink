@@ -116,6 +116,8 @@ namespace TruthOrDrink.Views.Game
             else
             {
                 GameJudgeButton.IsVisible = false;
+                GameTruthButton.IsVisible = true;
+                GameDrinkButton.IsVisible = true;
                 PlayerScore.IsVisible = true;
                 WhoIsLabel.Text = _Player[playercounter].Playername;
                 PlayerScore.Text = _Player[playercounter].Score.ToString();
@@ -157,6 +159,26 @@ namespace TruthOrDrink.Views.Game
         {
 
             await Navigation.PushAsync(new GameJudgePage(_Game));
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            if (await this.DisplayAlert("Stopping game", "are you sure you want to do this", "Yes", "No"))
+            {
+                base.OnBackButtonPressed();
+                await App.Database.DeleteGame(_Game);
+
+                for (var counter = 1; counter < 2; counter++)
+                {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                }
+                await Navigation.PopAsync();
+
+            }
         }
     }
 }

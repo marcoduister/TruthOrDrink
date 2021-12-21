@@ -169,10 +169,19 @@ namespace TruthOrDrink.Data
         public async Task<User> GetUserAsync(string Email, string Password)
         {
 
-            string salt = _dataBase.Table<User>().FirstAsync(e => e.Email == Email).Result.Salt;
-            string pwdHashed = SecurityHelper.HashPassword(Password, salt, 10101, 70);
+            try
+            {
+                string salt = _dataBase.Table<User>().FirstAsync(e => e.Email == Email).Result.Salt;
+                string pwdHashed = SecurityHelper.HashPassword(Password, salt, 10101, 70);
 
-            return await _dataBase.Table<User>().FirstOrDefaultAsync(e=>e.Email == Email && e.Password == pwdHashed);
+                return await _dataBase.Table<User>().FirstOrDefaultAsync(e => e.Email == Email && e.Password == pwdHashed);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
         }
 
         public async Task<User> GetUserByIdAsync(int Id)

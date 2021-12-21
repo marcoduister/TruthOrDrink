@@ -21,7 +21,6 @@ namespace TruthOrDrink.Views
             return true;
         }
 
-
         private void PlayRedirectButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new GameCreatePage());

@@ -15,18 +15,25 @@ namespace TruthOrDrink.Views.Game
         public Scoreboard()
         {
             InitializeComponent();
-            FillList();
         }
-        private void FillList()
+        protected async override void OnAppearing()
         {
-            var items = new List<string>();
-            for (int i = 0; i < 3; i++)
+            base.OnAppearing();
+            var winnerList = await App.Database.GetScoreboardAllAsync();
+            if (winnerList.Count > 0)
             {
-                items.Add(string.Format("Winner {0}", i));
+                WinnerList.ItemsSource = winnerList;
             }
-
-            WinnerList.ItemsSource = items;
-
+            else
+            {
+                List<Model.Scoreboard> scoreboardList = new List<Model.Scoreboard>();
+                Model.Scoreboard scoreboard = new Model.Scoreboard()
+                {
+                    PlayerName = "there are no winners yet!",
+                };
+                scoreboardList.Add(scoreboard);
+                WinnerList.ItemsSource = scoreboardList;
+            }
         }
     }
 }

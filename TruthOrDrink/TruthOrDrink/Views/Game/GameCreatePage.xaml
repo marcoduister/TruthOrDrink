@@ -2,16 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TruthOrDrink.Views.Game.GameCreatePage">
+             x:Class="TruthOrDrink.Views.Game.GameCreatePage"
+             NavigationPage.HasBackButton="False">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <xct:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
             </ResourceDictionary>
     </ContentPage.Resources>
+
     <NavigationPage.TitleView>
-        <StackLayout>
-            <Label Text="Create Game" Style="{StaticResource TitleViewStyle}" />
+        <StackLayout  Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <ImageButton x:Name="BackButton" Source="Exit.png" Clicked="BackButton_Clicked" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="100,0,0,0">
+                <Label Text="Create Game"  HorizontalOptions="End" Style="{StaticResource TitleViewStyle}" />
+            </StackLayout>
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>

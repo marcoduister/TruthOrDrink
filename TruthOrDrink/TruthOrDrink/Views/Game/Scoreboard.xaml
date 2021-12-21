@@ -9,15 +9,14 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="WinnerList" HasUnevenRows="True" RowHeight="60" >
+            <ListView x:Name="WinnerList" IsPullToRefreshEnabled="true" HasUnevenRows="True" RowHeight="60" >
                 <ListView.ItemTemplate>
-                    <DataTemplate >
+                    <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource Listviewstyle}" >
-                                <AbsoluteLayout HeightRequest="60" >
-                                    <Label Text="{Binding .}" AbsoluteLayout.LayoutBounds="0.09,0.5,110,25" 
-                                   AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                </AbsoluteLayout>
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="Fill" HeightRequest="60"  Margin="0,1,0,1" >
+                                    <Label Text="{Binding PlayerName}" Font="Bold,17" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+                                </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>

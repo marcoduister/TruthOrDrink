@@ -71,13 +71,6 @@ namespace TruthOrDrink.Views.Game
             }
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            App.Database.DeleteGame(Gameplay);
-            // true or false to disable or enable the action
-            return base.OnBackButtonPressed();
-        }
-
         private async void DeletePlayerButton_Clicked(object sender, EventArgs e)
         {
             string Id = ((ImageButton)sender).BindingContext.ToString();
@@ -92,6 +85,16 @@ namespace TruthOrDrink.Views.Game
                     PlayerList.ItemsSource = await App.Database.GetPlayersByGameIdAsync(Gameplay.Id);
                 }
             }
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            _ = App.Database.DeleteGame(Gameplay);
+            _ = Navigation.PopAsync();
         }
     }
 }

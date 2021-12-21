@@ -23,7 +23,7 @@ namespace TruthOrDrink.Views
         {
             NickNameEntryLabel.IsVisible = EmailEntryLabel.IsVisible = PasswordconfirmEntryLabel.IsVisible = PasswordEntryLabel.IsVisible = false;
             string Email = EmailEntry.Text;
-            string NickName = PasswordconfirmEntry.Text;
+            string NickName = NickNameEntry.Text;
             string Password = PasswordEntry.Text;
             string PasswordConfirm = PasswordconfirmEntry.Text;
 
