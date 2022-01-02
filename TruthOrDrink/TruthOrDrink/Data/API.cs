@@ -20,8 +20,8 @@ namespace TruthOrDrink.Data
             {
                 var response = await cl.GetAsync(link);
                 var json = await response.Content.ReadAsStringAsync();
-                var cocktailResponse = JsonConvert.DeserializeObject<List<Drink>>(json);
-                cocktail = cocktailResponse as List<Drink>;
+                var cocktailResponse = JsonConvert.DeserializeObject<Drink>(json);
+                cocktail.Add(cocktailResponse);
             }
 
             return cocktail;

@@ -36,7 +36,7 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Image  Grid.Column="0" HeightRequest="75" Source="{Binding strDrinkThumb }" />
-                                    <Label Grid.Column="1" FontSize="Medium"  Text="{Binding StrDrink }" />
+                                    <Label Grid.Column="1" FontSize="Medium"  Text="{Binding strDrink }" />
                                     <Label  Grid.Column="2" FontSize="Small"  Text="{Binding AllIngrediants}" />
                                 </Grid>
                             </ViewCell>

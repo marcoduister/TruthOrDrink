@@ -22,9 +22,9 @@ namespace TruthOrDrink.Views
             base.OnAppearing();
             NextDrink();
         }
-        public async void NextDrink()
+        public void NextDrink()
         {
-            CockTailsview.ItemsSource = (System.Collections.IEnumerable)await API.GetCockTailsByrandom();
+            CockTailsview.ItemsSource = (System.Collections.IEnumerable)API.GetCockTailsByrandom();
         }
 
         private void GenerateButton_Clicked(object sender, EventArgs e)

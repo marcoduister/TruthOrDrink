@@ -12,7 +12,7 @@ namespace TruthOrDrink.Model
         [PrimaryKey, AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
-        [Column("Question")]
+        [Column("QuestionItem")]
         public string QuestionItem { get; set; }
         [Column("Date")]
         public DateTime Date { get; set; }
