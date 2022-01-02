@@ -10,9 +10,9 @@ namespace TruthOrDrink.Data
 {
     class API
     {
-        public async static Task<List<Drink>> GetCockTailsByrandom()
+        public async static Task<IList<Drink>> GetCockTailsByrandom()
         {
-            List<Drink> cocktail = new List<Drink>();
+            IList<Drink> cocktail;
 
             var link = Cocktail.GeneratedUrlByRandom();
 
@@ -20,8 +20,9 @@ namespace TruthOrDrink.Data
             {
                 var response = await cl.GetAsync(link);
                 var json = await response.Content.ReadAsStringAsync();
-                var cocktailResponse = JsonConvert.DeserializeObject<Drink>(json);
-                cocktail.Add(cocktailResponse);
+                var cocktailResponse = JsonConvert.DeserializeObject<DrinkList>(json);
+
+                cocktail = (List<Drink>)cocktailResponse.drinks;
             }
 
             return cocktail;

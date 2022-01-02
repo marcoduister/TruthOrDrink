@@ -21,6 +21,5 @@ namespace TruthOrDrink.Model
         {
             return Constants.CochtailByRandom;
         }
-
     }
 }
